@@ -27,15 +27,19 @@
         this.board = board;
         this.board.bars.push(this);
         this.kind = "rectangle";
+        this.speed = 10;
     }
     
 
     self.Bar.prototype = {
         down: function(){
-
+            this.y += this.speed;
         },
         up: function(){
-
+            this.y -= this.speed;
+        },
+        toString: function(){
+            return "x: "+ this.x +" y: "+ this.y;
         }
     }
 })();
@@ -60,29 +64,47 @@
     }
 
     function draw(contexto,element){
-        console.log(element);
-        if (element !== null && element.hasOwnProperty("kind")){
-            switch(element.kind){
-                case "rectangle":
+    console.log(element);
+        switch(element.kind)
+        {
+            case "rectangle":
                     
-                    contexto.fillRect(element.x,element.y,element.width,element.height);
-                    break;
-            }
+                contexto.fillRect(element.x,element.y,element.width,element.height);
+                break;
         }
     }
 
 })();
 
-window.addEventListener("load",main);
+var board = new Board(800,400);
+var bar = new Bar(10,100,40,100,board);
+var bar_2 = new Bar(750,100,40,100,board);
+var canvas = document.getElementById('canvas');
+var board_view = new BoardView(canvas,board);
+
+document.addEventListener("keydown",function(ev){
+    ev.preventDefault();
+    if(ev.keyCode == 38){
+        bar.up();
+    }
+    else if(ev.keyCode == 40){
+        bar.down();
+    }
+    else if(ev.keyCode == 87){
+        bar_2.up();
+    }
+    else if(ev.keyCode == 83){
+        bar_2.down();
+    }
+
+    console.log(bar.toString());
+})
+
+
+window.requestAnimationFrame(main);
 
 function main(){
-    console.log("Estoy en el main")
-    var board = new Board(800,400);
-    var bar = new Bar(10,100,40,100,board);
-    var bar = new Bar(750,100,40,100,board);
-    var canvas = document.getElementById('canvas');
-    var board_view = new BoardView(canvas,board);
-    console.log(board);
     board_view.draw();
+    window.requestAnimationFrame(main);
 }
 
