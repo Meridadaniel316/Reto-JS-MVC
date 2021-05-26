@@ -84,9 +84,11 @@
             };
         },
         play: function(){
+           if(this.board.playing){
             this.clean();
             this.draw();
             this.board.ball.move();
+           }
         }
     }
 
@@ -130,6 +132,10 @@ document.addEventListener("keydown",function(ev){
     else if(ev.keyCode === 83){
         ev.preventDefault();
         bar.down();
+    }
+    else if(ev.keyCode === 32){
+        ev.preventDefault();
+        board.playing = !board.playing
     }
 })
 
