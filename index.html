@@ -6,12 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-       canvas{ border: solid;}
+        *{
+            margin: 0px;
+            margin: 0px;
+        }
+        div#general{
+            margin: auto;
+            margin-top: 60px;
+            width: 1200px;
+            height: 800px;
+        }
+        div#pimpon{
+            float: left;
+            width: 850px;
+            height: 450px;
+        }
+        div#explicacion{
+            float: right;
+            width: 350px;
+            height: 500px;
+            text-align: center;
+        }
+        #logo{
+            background-color: black;
+            margin: right;
+            margin-top: 455px;
+            width: 160px;
+            height: 100px;
+            position: fixed;
+            z-index: 1000px;
+            text-decoration: none;
+            opacity: 95%;
+        }
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+       canvas{ border: solid;
+        color: black;}
     </style>
 </head>
 <body>
-    <h1>Ping Pong </h1>
-    <canvas id="canvas"></canvas>
-    <script src="main.js"></script>
+    <a href="https://www.sofka.com.co/es/sofka-university/" id="logo">
+        <img src="./libr/img/sofkaUniversity.png" alt="">
+        <h4 style="color: #FC6E0B; font-family: Helvetica; text-align: center;">Training Ciclo 2</h4>
+    </a>
+    <div id="general">
+        <div id="pimpon">
+            <canvas id="canvas"></canvas>
+            <script src="main.js"></script>
+        </div>
+        <div id="explicacion">
+            <h1 style="font-family: monospace;">Ping Pong</h1> <br>
+            <h4 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                Sistema <u>MVC</u> creado por <b>Daniel Castaño Merida</b></h4>
+            <br>
+            <h1 style="color: #4CAF50; font-family: Arial Narrow; font-size:x-large">Controles:</h1>
+
+            <div style="width: 300px; height: 120px; margin: auto;">
+
+                <input type="button" class="button" onclick="location.reload()" value="Reiniciar juego">       
+                <br><br>
+                <h4 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                    <div>
+                        <b style="color: #4CAF50; font-style: italic;"><< ESPACIO >></b> <br> Iniciar juego <br> parar el juego
+                    </div>
+                    <br>
+                    <div style="float: left;">
+                        <b style="color: #4CAF50; font-style: italic;">Primer Jugador</b><br>
+                        <b style="color: #4CAF50; font-style: italic;"><< W  >></b> Arriba <br>
+                        <b style="color: #4CAF50; font-style: italic;"><< S >></b> ABAJO
+                    </div>
+                    <div style="float: right;">
+                        <b style="color: #4CAF50; font-style: italic;">Segundo Jugador</b><br>
+                        <b style="color: #4CAF50; font-style: italic;"><< ⇧ >></b> Arriba <br>
+                        <b style="color: #4CAF50; font-style: italic;"><< ⇩ >></b> ABAJO
+                    </div>
+                </h4>  
+                <a href="https://github.com/Meridadaniel316"><img src="./libr/img/github.png" style="width: 30px; height: 30px; margin-top: 20px;"  alt=""></a>
+            </div>
+            
+        </div>
+    </div>
+
+    
 </body>
 </html>

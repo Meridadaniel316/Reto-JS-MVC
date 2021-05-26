@@ -25,7 +25,7 @@
         this.speed_y = 0;
         this.speed_x = 3;
         this.board = board;
-        this.direction = 1;
+        this.direction = -1;
         this.bounce_angle = 0;
         this.max_bounce_angle = Math.PI / 12;
         this.speed = 3;
