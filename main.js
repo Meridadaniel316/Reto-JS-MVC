@@ -63,6 +63,10 @@
 
                 draw(this.contexto,el);
             };
+        },
+        play: function(){
+            this.clean();
+            this.draw();
         }
     }
 
@@ -103,11 +107,11 @@ document.addEventListener("keydown",function(ev){
 })
 
 
-window.requestAnimationFrame(main);
+window.requestAnimationFrame(controller);
 
-function main(){
-    board_view.clean();
-    board_view.draw();
-    window.requestAnimationFrame(main);
+function controller()
+{
+    board_view.play();
+    window.requestAnimationFrame(controller);
 }
 
