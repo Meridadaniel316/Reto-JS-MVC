@@ -47,7 +47,7 @@
             }
 
             if (this.y < 10 || this.y > 395) {
-                this.speed = 3
+                this.speed -= 0.005;
                 this.x = 400
                 this.y = 200
                 
@@ -94,10 +94,10 @@
 
     self.Bar.prototype = {
         down: function () {
-            this.y += this.speed;
+            this.y = (this.y == 300) ? this.y : this.y + this.speed;
         },
         up: function () {
-            this.y -= this.speed;
+            this.y = (this.y == 0) ? this.y : this.y - this.speed;
         },
         toString: function () {
             return "x: " + this.x + " y: " + this.y;
